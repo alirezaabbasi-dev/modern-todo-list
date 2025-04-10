@@ -1,0 +1,17 @@
+@font-face {
+    font-family:"EduAUVICWANTArrows-Regular";
+    src: url("../src/Fonts/EduAUVICWANTArrows-Regular/EduAUVICWANTArrows-Regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "roboto";
+    src: url("../src/Fonts/Roboto/roboto.ttf") format("truetype");
+}
+@import "tailwindcss";
+
+@theme {
+    --font-logo: "EduAUVICWANTArrows-Regular";
+    --font-main: "roboto";
+}
+@utility flexAllCenter {
+   @apply flex items-center justify-center;
+  }
