@@ -7,50 +7,73 @@ const btnAdd = $.querySelector("#btnAdd");
 // todos items container
 const todosContainer = $.querySelector(".items-container");
 
+let items = [];
 
 function addTodo() {
   const todoText = textInput.value.trim();
+  if (!todoText) return;
 
+  const todoObj = {
+    id: items.length + 1,
+    title: todoText,
+    isDone: false,
+  };
 
-
-  todosContainer.innerHTML += `
-                <!-- item start -->
-                <div
-                    class="todo-item w-full h-14 rounded-xl text-zinc-700 bg-zinc-300 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp">
-                    <div class="todo-item-content">
-                        <span class="todo-text ">${todoText}</span>
-                    </div>
-
-                    <div class="btn-container">
-                        <button onClick="doneBtnHandler(event)" class="done-btn w-20 h-7 rounded-3xl text-emerald-600 bg-emerald-300">Done</button>
-                        <button onClick="deleteBtnHandler(event)" class="delete-btn w-20 h-7 rounded-3xl text-red-600 bg-red-300">Delete</button>
-                    </div>
-                </div>
-                <!-- item end -->
-        `;
-    // clear the input field
+  items.push(todoObj);
+  localStorage.setItem("todos", JSON.stringify(items));
+  renderTodoItem(todoObj);
   textInput.value = "";
-  localStorageHandler(todoText);
 }
 
-
-function deleteBtnHandler(event){
-    event.target.parentElement.parentElement.remove()
+function renderTodoItem(item) {
+  todosContainer.innerHTML += `
+    <div
+      class="todo-item w-full h-14 rounded-xl text-zinc-700 bg-zinc-300 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp">
+      <div data-id="${item.id}" class="todo-item-content todo-text ${
+    item.isDone ? "line-through" : ""
+  }">
+           ${item.title}
+      </div>
+      <div class="btn-container">
+          <button onClick="doneBtnHandler(event)" class="done-btn w-20 h-7 rounded-3xl text-emerald-600 ${
+            item.isDone ? "" : "bg-emerald-300"
+          }">${item.isDone ? "Undo" : "Done"}</button>
+          <button onClick="deleteBtnHandler(event)" class="delete-btn w-20 h-7 rounded-3xl text-red-600 bg-red-300">Delete</button>
+      </div>
+    </div>
+  `;
 }
-function doneBtnHandler(event){
-    const todoText = event.target.parentElement.parentElement.querySelector(".todo-text");
-    todoText.classList.toggle("line-through");
-    event.target.innerText = event.target.innerText === "Done" ? "Undo" : "Done";
-    event.target.classList.toggle("bg-emerald-300");
-    event.target.parentElement.previousElementSibling.classList.toggle("line-through");
 
-
+function deleteBtnHandler(event) {
+  const id = +event.target.parentElement.previousElementSibling.dataset.id;
+  items = items.filter((item) => item.id !== id);
+  localStorage.setItem("todos", JSON.stringify(items));
+  event.target.parentElement.parentElement.remove();
 }
 
+function doneBtnHandler(event) {
+  const todoElem = event.target.parentElement.previousElementSibling;
+  const id = +todoElem.dataset.id;
+  const item = items.find((item) => item.id === id);
+  item.isDone = !item.isDone;
 
+  localStorage.setItem("todos", JSON.stringify(items));
 
+  todoElem.classList.toggle("line-through");
+  event.target.innerText = item.isDone ? "Undo" : "Done";
+  event.target.classList.toggle("bg-emerald-300");
+}
 
+function getFromLocalStorage() {
+  const savedTodos = JSON.parse(localStorage.getItem("todos")) || [];
+  items = savedTodos;
 
+  items.forEach((item) => {
+    renderTodoItem(item);
+  });
+}
+
+window.addEventListener("load", getFromLocalStorage);
 btnAdd.addEventListener("click", addTodo);
 textInput.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
