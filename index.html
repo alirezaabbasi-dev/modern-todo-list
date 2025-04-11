@@ -13,7 +13,8 @@
     <header>
         <div class="@container">
             <div
-                class="min-w-7xl @sm:px-2 @md:px-20  bg-slate-300/80 px-2.5 py-2.5 rounded-b-2xl text-emerald flex items-center justify-between mx-auto shadow-lg transition-shadow shadow-zinc-700 border-b-black border-1 wow animate__animated animate__fadeInDown">
+                class="max-w-7xl @sm:px-2 @md:px-20  bg-slate-100/40
+                backdrop-blur-md px-2.5 py-2.5 rounded-b-2xl text-emerald flex items-center justify-between mx-auto shadow-lg transition-shadow shadow-zinc-700 border-b-black  wow animate__animated animate__fadeInDown">
                 <h2 class="font-logo text-fuchsia-950 text-4xl font-semibold text-shadow tracking-tight">Todo List</h2>
                 <a target="_blank" href="github.com/alirezaabbasi-dev" title="Go to My github"
                     class="text-md text-zinc-700 font-light tracking-widest">About</a>
@@ -24,8 +25,8 @@
     <main>
         <!-- todos Header -->
         <div class="@container">
-            <div class="@sm:px-2 @md:px-20 w-7xl mx-auto mt-10 flexAllCenter gap-2.5">
-                <input id="textInput"
+            <div class="@sm:px-2 xl:px-10 max-w-7xl mx-auto mt-10 flexAllCenter gap-2.5">
+                <input placeholder="Add Todo ..." id="textInput"
                     class="bg-white text-zinc-700 p-2.5 w-full text-xl border border-amber-500 rounded-2xl wow animate__animated animate__fadeInDownBig"
                     type="text">
                 <button id="btnAdd"
@@ -34,18 +35,21 @@
         </div>
         <!-- Todos Item -->
         <div class="@container">
-            <div
-                class="items-container h-[70vh] sm:px-2 md:max-w-4xl mx-auto mt-10 py-2 bg-indigo-100/9 flex flex-col justify-start gap-2.5 items-center rounded-2xl overflow-y-auto">
+            <div class="h-[70vh] mx-auto my-20 @sm:max-w-5xl">
+                <div
+                    class=" items-container h-full p-8 bg-indigo-100/9 flex flex-col justify-start gap-2.5 items-center rounded-2xl overflow-y-auto">
 
 
 
+                </div>
             </div>
         </div>
     </main>
 
     <footer>
         <div class="@container">
-            <div class="@sm:px-2 @md:px-20 w-7xl mx-auto mt-10 py-3.5 flexAllCenter gap-2.5 border-t-2  rounded-sm ">
+            <div
+                class="@sm:px-2 @md:px-20 max-w-7xl mx-auto mt-10 py-3.5 flexAllCenter gap-2.5 border-t-2  rounded-sm ">
                 <p class="text-sm text-slate-200">Made with ❤️ by Kiyan Abbasi</p>
             </div>
         </div>
