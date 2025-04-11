@@ -25,68 +25,18 @@
         <div class="@container">
             <div class="@sm:px-2 @md:px-20 w-7xl mx-auto mt-10 flexAllCenter gap-2.5">
                 <input
-                    class="bg-white text-zinc-700 p-2.5 w-full text-xl border border-amber-500 rounded-2xl wow animate__animated animate__fadeInDownBig"
+                 id="textInput"   class="bg-white text-zinc-700 p-2.5 w-full text-xl border border-amber-500 rounded-2xl wow animate__animated animate__fadeInDownBig"
                     type="text">
                 <button
-                    class="bg-slate-700/80 text-white px-4 py-2 rounded-xl wow animate__animated animate__fadeInRightBig">Add</button>
+                  id="btnAdd"  class="bg-slate-700/80 text-white px-4 py-2 rounded-xl wow animate__animated animate__fadeInRightBig">Add</button>
             </div>
         </div>
         <!-- Todos Item -->
         <div class="@container">
             <div
-                class="items-container h-[70vh] sm:px-2 md:max-w-4xl mx-auto mt-10 py-2 bg-indigo-100/9 flex flex-col justify-start gap-2.5 items-center rounded-2xl">
-                <!-- item start -->
-                <div
-                    class="todo-item w-full h-14 rounded-xl bg-violet-700 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp">
-                    <div class="todo-item-content">
-                        <span class="todo-text ">learn react</span>
-                    </div>
+                class="items-container h-[70vh] sm:px-2 md:max-w-4xl mx-auto mt-10 py-2 bg-indigo-100/9 flex flex-col justify-start gap-2.5 items-center rounded-2xl overflow-y-auto">
 
-                    <div class="">
-                        <button class="done-btn w-20 h-7 rounded-3xl text-emerald-600 bg-emerald-300">Done</button>
-                        <button class="delete-btn w-20 h-7 rounded-3xl text-red-600 bg-red-300">Delete</button>
-                    </div>
-                </div>
-                <!-- item end -->
-                <!-- item start -->
-                <div
-                    class="todo-item w-full h-14 rounded-xl bg-violet-700 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp">
-                    <div class="todo-item-content">
-                        <span class="todo-text ">learn react</span>
-                    </div>
 
-                    <div class="">
-                        <button class="done-btn w-20 h-7 rounded-3xl text-emerald-600 bg-emerald-300">Done</button>
-                        <button class="delete-btn w-20 h-7 rounded-3xl text-red-600 bg-red-300">Delete</button>
-                    </div>
-                </div>
-                <!-- item end -->
-                <!-- item start -->
-                <div
-                    class="todo-item w-full h-14 rounded-xl bg-violet-700 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp">
-                    <div class="todo-item-content">
-                        <span class="todo-text ">learn react</span>
-                    </div>
-
-                    <div class="">
-                        <button class="done-btn w-20 h-7 rounded-3xl text-emerald-600 bg-emerald-300">Done</button>
-                        <button class="delete-btn w-20 h-7 rounded-3xl text-red-600 bg-red-300">Delete</button>
-                    </div>
-                </div>
-                <!-- item end -->
-                <!-- item start -->
-                <div
-                    class="todo-item w-full h-14 rounded-xl bg-violet-700 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp">
-                    <div class="todo-item-content">
-                        <span class="todo-text ">learn react</span>
-                    </div>
-
-                    <div class="">
-                        <button class="done-btn w-20 h-7 rounded-3xl text-emerald-600 bg-emerald-300">Done</button>
-                        <button class="delete-btn w-20 h-7 rounded-3xl text-red-600 bg-red-300">Delete</button>
-                    </div>
-                </div>
-                <!-- item end -->
 
             </div>
         </div>
@@ -106,7 +56,7 @@
     <script>
         new WOW().init();
     </script>
-
+    <script src="./src/Scripts/app.js"></script>
 </body>
 
 </html>
