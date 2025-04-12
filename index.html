@@ -9,12 +9,12 @@
     <link rel="stylesheet" href="./dist/output.css">
 </head>
 
-<body class="font-main bg-gradient-to-tl from-indigo-800 to-emerald-400 text-white">
+<body class="font-main bg-gradient-to-tl bg-linear-45 from-indigo-700 via-blue-500 to-pink-500 text-white">
     <header>
         <div class="@container">
             <div
-                class="max-w-7xl @sm:px-2 @md:px-20  bg-slate-100/40
-                backdrop-blur-md px-2.5 py-2.5 rounded-b-2xl text-emerald flex items-center justify-between mx-auto shadow-lg transition-shadow shadow-zinc-700 border-b-black  wow animate__animated animate__fadeInDown">
+                class="max-w-7xl @sm:px-2 @md:px-20 fixed top-0 right-0 left-0 bg-slate-100/40
+                backdrop-blur-md px-2.5 py-2.5 rounded-b-2xl text-emerald flex items-center justify-between mx-auto shadow-md shadow-black/30  wow animate__animated animate__fadeInDown">
                 <h2 class="font-logo text-fuchsia-950 text-4xl font-semibold text-shadow tracking-tight">Todo List</h2>
                 <a target="_blank" href="http://github.com/alirezaabbasi-dev" title="Go to My github"
                     class="text-md text-zinc-700 font-light tracking-widest">About</a>
@@ -25,12 +25,12 @@
     <main>
         <!-- todos Header -->
         <div class="@container">
-            <div class="@sm:px-2 xl:px-10 max-w-7xl mx-auto mt-10 flexAllCenter gap-2.5">
+            <div class="@sm:px-2 xl:px-10 max-w-7xl mx-auto mt-30 flexAllCenter gap-2.5">
                 <input placeholder="Add Todo ..." id="textInput"
                     class="bg-white text-zinc-700 p-2.5 w-full text-xl border border-amber-500 rounded-2xl wow animate__animated animate__fadeInDownBig"
                     type="text">
                 <button id="btnAdd"
-                    class="bg-slate-700/80   text-white px-4 py-2 rounded-xl wow animate__animated animate__fadeInRightBig">Add</button>
+                    class="bg-blue-900   text-white px-5 py-3 rounded-xl wow animate__animated animate__fadeInRightBig">Add</button>
             </div>
         </div>
         <!-- Todos Item -->

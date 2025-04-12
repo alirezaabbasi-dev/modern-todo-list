@@ -7,6 +7,7 @@
     src: url("../src/Fonts/Roboto/roboto.ttf") format("truetype");
 }
 @import "tailwindcss";
+@source "../src/Scripts/*.js";
 
 @theme {
     --font-logo: "EduAUVICWANTArrows-Regular";

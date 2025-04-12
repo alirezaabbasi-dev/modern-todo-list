@@ -23,18 +23,21 @@ function addTodo() {
   localStorage.setItem("todos", JSON.stringify(items));
   renderTodoItem(todoObj);
   textInput.value = "";
+  textInput.focus();
 }
 
 function renderTodoItem(item) {
   todosContainer.innerHTML += `
     <div
-      class="todo-item w-full h-14 rounded-xl text-zinc-700 bg-zinc-300 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp">
-      <div data-id="${item.id}" class="todo-item-content todo-text ${
+      class="todo-item w-full max-h-[75px] rounded-xl text-zinc-700 bg-zinc-100/20 shadow-md shadow-black/30 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp">
+      <div data-id="${
+        item.id
+      }" class="todo-item-content text-wrap wrap-anywhere line-clamp-3 todo-text ${
     item.isDone ? "line-through" : ""
   }">
            ${item.title}
       </div>
-      <div class="btn-container">
+      <div class="btn-container ml-1 flex items-center justify-end flex-wrap gap-2 ">
           <button onClick="doneBtnHandler(event)" class="done-btn w-20 h-7 rounded-3xl text-emerald-600 ${
             item.isDone ? "" : "bg-emerald-300"
           }">${item.isDone ? "Undo" : "Done"}</button>
