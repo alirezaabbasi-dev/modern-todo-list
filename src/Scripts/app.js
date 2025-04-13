@@ -40,7 +40,7 @@ function renderTodoItem(item) {
   }">
       ${item.title}
     </div>
-    <div class="btn-container ml-1 flex items-center justify-end flex-wrap gap-2">
+    <div class="btn-container ml-1 flex flex-col items-center justify-end flex-wrap gap-2">
       <button title="done todo" class="done-btn max-w-20 h-7 flexAllCenter cursor-pointer text-emerald-300">
         <svg class='w-5 h-5'><use href='${
           item.isDone ? "#undo" : "#check"
