@@ -1,6 +1,6 @@
 @font-face {
-    font-family:"EduAUVICWANTArrows-Regular";
-    src: url("../src/Fonts/EduAUVICWANTArrows-Regular/EduAUVICWANTArrows-Regular.ttf") format("truetype");
+    font-family: "Oswald-Regular";
+    src: url("../src/Fonts/Oswald/Oswald-Regular.ttf") format("truetype");
 }
 @font-face {
     font-family: "roboto";
@@ -10,9 +10,9 @@
 @source "../src/Scripts/*.js";
 
 @theme {
-    --font-logo: "EduAUVICWANTArrows-Regular";
+    --font-logo: "Oswald-Regular";
     --font-main: "roboto";
 }
 @utility flexAllCenter {
-   @apply flex items-center justify-center;
-  }
+    @apply flex items-center justify-center;
+}

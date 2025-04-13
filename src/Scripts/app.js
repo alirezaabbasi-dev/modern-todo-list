@@ -35,19 +35,19 @@ function renderTodoItem(item) {
   todoElement.innerHTML = `
     <div data-id="${
       item.id
-    }" class="todo-item-content text-wrap wrap-anywhere line-clamp-3 todo-text ${
+    }" class="todo-item-content font-light text-wrap decoration-2 text-zinc-200 tracking-wider decoration-red-700   wrap-anywhere line-clamp-3 todo-text ${
     item.isDone ? "line-through" : ""
   }">
       ${item.title}
     </div>
     <div class="btn-container ml-1 flex items-center justify-end flex-wrap gap-2">
-      <button title="done todo" class="done-btn max-w-20 h-7 flexAllCenter text-emerald-300">
-        <svg class='w-5 h-5 '><use href='${
+      <button title="done todo" class="done-btn max-w-20 h-7 flexAllCenter cursor-pointer text-emerald-300">
+        <svg class='w-5 h-5'><use href='${
           item.isDone ? "#undo" : "#check"
         }'></use></svg>
       </button>
-      <button title="delete todo" class="delete-btn flexAllCenter w-20 h-7 text-red-500">
-        <svg class='w-5 h-5 '><use href='#delete-icon'></use></svg>
+      <button title="delete todo" class="delete-btn flexAllCenter w-20 h-7 cursor-pointer text-red-500">
+        <svg class='w-5 h-5'><use href='#delete-icon'></use></svg>
       </button>
     </div>
   `;
@@ -80,7 +80,7 @@ function doneBtnHandler(event) {
   item.isDone = !item.isDone;
   localStorage.setItem("todos", JSON.stringify(items));
 
-  // تغییر کلاس خط‌خورده
+  // change line through
   todoText.classList.toggle("line-through");
 
   // change icons
