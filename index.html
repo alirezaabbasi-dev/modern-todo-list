@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./dist/output.css">
 </head>
 
-<body class="font-main bg-gradient-to-tl bg-linear-45 from-indigo-700 via-blue-500 to-pink-500 text-white">
+<body class="font-main bg-white text-zinc-800 dark:bg-zinc-900 dark:text-zinc-100 transition-colors duration-500">
     <svg class="hidden">
         <symbol id="delete-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.7"
             stroke="currentColor">
@@ -26,50 +26,46 @@
         </symbol>
     </svg>
 
-    <header>
-        <div class="@container">
-            <div
-                class="max-w-7xl @sm:px-2 @md:px-20 fixed top-0 right-0 left-0 bg-slate-100/40
-                backdrop-blur-md px-2.5 py-2.5 rounded-b-2xl text-emerald flex items-center justify-between mx-auto shadow-md shadow-black/30  wow animate__animated animate__fadeInDown">
-                <a href="#"
-                    class="font-logo text-purple-900 text-4xl  text-shadow-zinc-500 hover:text-purple-700 text-shadow-xs  tracking-tight transition-colors">Todo
-                    List</a>
-                <a target="_blank" href="http://github.com/alirezaabbasi-dev" title="Go to My github"
-                    class="text-md text-zinc-700 font-medium tracking-widest hover:text-zinc-200 transition-colors">About</a>
+    <header
+        class="bg-zinc-100/50 dark:bg-zinc-800/50 backdrop-blur-md fixed top-0 inset-x-0 z-50 shadow-sm shadow-black/10">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#"
+                class="font-logo text-3xl text-indigo-700 dark:text-indigo-300 font-semibold italic tracking-[.20rem] hover:text-indigo-500 transition-colors">Todo
+                List</a>
+            <div class="flex items-center justify-center gap-4">
+                <button id="theme-btn"
+                    class="cursor-pointer text-sm text-zinc-600 dark:text-zinc-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors"></button>
+                <a target="_blank" href="https://github.com/alirezaabbasi-dev/modern-todo-list"
+                    class="text-sm text-zinc-600 dark:text-zinc-300 hover:text-indigo-500 dark:hover:text-indigo-400 transition-colors">GitHub</a>
             </div>
         </div>
     </header>
 
-    <main>
-        <!-- todos Header -->
-        <div class="@container">
-            <div class="@sm:px-2 xl:px-10 max-w-7xl mx-auto mt-30 flexAllCenter gap-2.5">
-                <input placeholder="Add Todo ..." id="textInput"
-                    class="bg-white text-zinc-700 p-2.5 w-full text-xl border border-amber-500 rounded-2xl wow animate__animated animate__fadeInDownBig"
-                    type="text">
+    <main class="pt-28">
+        <!-- Input Section -->
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="flex gap-3 items-center">
+                <input id="textInput" type="text" placeholder="Add Todo..."
+                    class="flex-grow px-4 py-3 text-lg bg-zinc-100 dark:bg-zinc-800 border border-zinc-300 dark:border-zinc-700 rounded-xl placeholder-zinc-400 dark:placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-indigo-400 transition-all">
                 <button id="btnAdd"
-                    class="bg-blue-900 hover:bg-blue-950 hover:text-zinc-200 cursor-pointer transition-all  text-white px-5 py-3 rounded-xl wow animate__animated animate__fadeInRightBig">Add</button>
+                    class="bg-indigo-600 hover:bg-indigo-700 text-white px-5 py-3 rounded-xl transition-all">Add</button>
             </div>
         </div>
-        <!-- Todos Item -->
-        <div class="@container">
-            <div class="h-[70vh] mx-auto my-20 @sm:max-w-5xl">
-                <div
-                    class=" items-container h-full p-8 bg-indigo-100/9 flex flex-col justify-start gap-2.5 items-center rounded-2xl overflow-y-auto">
 
+        <!-- Todos List -->
+        <div class="max-w-4xl mx-auto mt-10 px-4">
+            <div
+                class="items-container h-[60vh] overflow-y-auto space-y-3 p-4 rounded-2xl bg-zinc-100 dark:bg-zinc-800 shadow-md">
 
-
-                </div>
             </div>
         </div>
     </main>
 
-    <footer>
-        <div class="@container">
-            <div
-                class="@sm:px-2 @md:px-20 max-w-7xl mx-auto mt-10 py-3.5 flexAllCenter gap-2.5 border-t-2  rounded-sm ">
-                <p class="text-sm text-slate-200">Made with ❤️ by Kiyan Abbasi</p>
-            </div>
+    <footer class="mt-10 border-t dark:border-zinc-700 py-4">
+        <div class="max-w-7xl mx-auto text-center">
+            <p class="text-sm text-zinc-500 dark:text-zinc-400">Made with ❤️ by <a
+                    class="text-zinc-700 dark:text-zinc-200 hover:text-indigo-500 transition-colors" target="_blank"
+                    href="http://github.com/alirezaabbasi-dev"> Kiyan Abbasi </a> </p>
         </div>
     </footer>
 

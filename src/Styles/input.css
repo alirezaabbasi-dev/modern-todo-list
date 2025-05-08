@@ -16,3 +16,4 @@
 @utility flexAllCenter {
     @apply flex items-center justify-center;
 }
+@custom-variant dark (&:where(.dark, .dark *));

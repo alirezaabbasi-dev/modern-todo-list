@@ -4,6 +4,7 @@ const $ = document;
 // todos header
 const textInput = $.querySelector("#textInput");
 const btnAdd = $.querySelector("#btnAdd");
+const themeBtn = $.querySelector("#theme-btn");
 
 // todos items container
 const todosContainer = $.querySelector(".items-container");
@@ -12,7 +13,10 @@ let items = [];
 
 function addTodo() {
   const todoText = textInput.value.trim();
-  if (!todoText) return;
+  if (!todoText) {
+    textInput.focus();
+    return;
+  }
 
   const todoObj = {
     id: items.length ? items[items.length - 1].id + 1 : 1,
@@ -30,12 +34,12 @@ function addTodo() {
 function renderTodoItem(item) {
   const todoElement = document.createElement("div");
   todoElement.className =
-    "todo-item w-full max-h-[75px] rounded-xl text-zinc-700 bg-zinc-100/20 shadow-md shadow-black/30 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp";
+    "todo-item w-full max-h-[75px] rounded-xl text-zinc-700 bg-zinc-100/20 shadow-md shadow-black/30 dark:shadow-zinc-100/60 p-2.5 flex items-center justify-between wow animate__animated animate__fadeInUp";
 
   todoElement.innerHTML = `
     <div data-id="${
       item.id
-    }" class="todo-item-content font-light text-wrap decoration-2 text-zinc-200 tracking-wider decoration-red-700   wrap-anywhere line-clamp-3 todo-text ${
+    }" class="todo-item-content font-light text-wrap decoration-2 text-zinc-700 dark:text-zinc-200 tracking-wider decoration-red-700 wrap-anywhere line-clamp-3 todo-text ${
     item.isDone ? "line-through" : ""
   }">
       ${item.title}
@@ -94,10 +98,46 @@ function getFromLocalStorage() {
   items.forEach(renderTodoItem);
 }
 
-window.addEventListener("load", getFromLocalStorage);
+// load saved theme from localStorage
+function loadTheme() {
+  const nowTheme = localStorage.getItem("theme") || "light";
+  if (nowTheme === "dark") {
+    $.documentElement.classList.add("dark");
+    themeBtn.innerHTML = "Light";
+  } else {
+    $.documentElement.classList.remove("dark");
+    themeBtn.innerHTML = "Dark";
+  }
+}
+
+// toggle theme on button click
+function themeHandler() {
+  let nowTheme = localStorage.getItem("theme");
+
+  if (nowTheme === "dark") {
+    $.documentElement.classList.remove("dark");
+    localStorage.setItem("theme", "light");
+    themeBtn.innerHTML = "Dark";
+  } else {
+    $.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
+    themeBtn.innerHTML = "Light";
+  }
+}
+
+// events
+window.addEventListener("load", () => {
+  getFromLocalStorage();
+  loadTheme();
+  textInput.focus();
+});
+
 btnAdd.addEventListener("click", addTodo);
+
 textInput.addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     addTodo();
   }
 });
+
+themeBtn.addEventListener("click", themeHandler);
